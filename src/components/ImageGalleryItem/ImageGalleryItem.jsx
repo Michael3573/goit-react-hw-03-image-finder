@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './ImageGalleryItem.module.css';
 
 const ImageGalleryItem = ({ image, onClick }) => {
   return (
-    <li className="ImageGalleryItem">
+    <li className={styles.ImageGalleryItem}>
       <img
-        className="ImageGalleryItem-image"
+        className={styles['ImageGalleryItem-image']}
         src={image.webformatURL}
         alt=""
         onClick={() => onClick(image.largeImageURL)}

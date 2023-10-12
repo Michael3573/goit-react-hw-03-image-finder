@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import styles from './Modal.module.css';
 
 class Modal extends Component {
   componentDidMount() {
-    // Добавляем обработчик нажатия клавиши ESC при монтировании
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    // Удаляем обработчик нажатия клавиши ESC при размонтировании
     window.removeEventListener('keydown', this.handleKeyDown);
   }
 
@@ -27,8 +26,8 @@ class Modal extends Component {
     const { image } = this.props;
 
     return (
-      <div className="Overlay" onClick={this.handleOverlayClick}>
-        <div className="Modal">
+      <div className={styles.Overlay} onClick={this.handleOverlayClick}>
+        <div className={styles.Modal}>
           <img src={image.largeImageURL} alt="" />
         </div>
       </div>

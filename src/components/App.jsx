@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
-import Searchbar from './Searchbar';
-import ImageGallery from './ImageGallery';
-import Loader from './Loader';
-import Button from './Button';
-import Modal from './Modal';
+import styles from './App.module.css';
+import Searchbar from './Searchbar/Searchbar';
+import ImageGallery from './ImageGallery/ImageGallery';
+import Loader from './Loader/Loader';
+import Button from './Button/Button';
+import Modal from './Modal/Modal';
 
 const API_KEY = '38801861-b7baeaf74cb7f3511b259df46';
 const BASE_URL = 'https://pixabay.com/api/';
@@ -21,12 +21,10 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // Add event listener to close the modal on 'Esc' key press
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    // Remove event listener when component unmounts
     window.removeEventListener('keydown', this.handleKeyDown);
   }
 
@@ -82,7 +80,9 @@ class App extends Component {
     const { images, isLoading, showModal, selectedImage } = this.state;
 
     return (
-      <div className="App">
+      <div className={styles.App}>
+        {' '}
+        {/* Используйте стили из CSS-модуля */}
         <Searchbar onSubmit={this.handleSearchSubmit} />
         <ImageGallery images={images} onImageClick={this.handleImageClick} />
         {isLoading && <Loader />}
